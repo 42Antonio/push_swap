@@ -40,20 +40,17 @@ SRC = ft_atoi.c \
 		  ft_substr.c \
 		  ft_tolower.c \
 		  ft_toupper.c \
-
-BONUS	 =	ft_lstnew_bonus.c 	\
-		ft_lstadd_front_bonus.c \
-		ft_lstsize_bonus.c \
-		ft_lstlast_bonus.c \
-		ft_lstadd_back_bonus.c \
-		ft_lstdelone_bonus.c \
-		ft_lstclear_bonus.c \
-		ft_lstiter_bonus.c \
-		ft_lstmap_bonus.c \
+		  ft_lstnew.c \
+		  ft_lstadd_front.c \
+		  ft_lstsize.c \
+		  ft_lstlast.c \
+		  ft_lstadd_back.c \
+		  ft_lstdelone.c \
+		  ft_lstclear.c \
+		  ft_lstiter.c \
+		  ft_lstmap.c \
 
 OBJS	 =	$(SRC:%.c=%.o)
-
-OBJ_BONUS=	$(BONUS:%.c=%.o)
 
 all	:	$(NAME)
 
@@ -63,11 +60,8 @@ $(NAME)	: 	$(OBJS) libft.h
 %.o	:	%.c
 	$(CC) $(CFLAGS) -c $< -o $@ -I.
 
-bonus	:	$(OBJS) $(OBJ_BONUS) libft.h
-	$(AR) $(NAME) $(OBJ_BONUS) $(OBJS)
-
 clean	:
-	rm -rf $(OBJS) $(OBJ_BONUS)
+	rm -rf $(OBJS)
 
 fclean	: 	clean
 	rm -rf $(NAME)
