@@ -5,7 +5,8 @@
 //ELIMINAR LA lIBREIRA STDIO
 #   include    <stdio.h>
 
-void    sort_three(t_list   *stackA);
-t_list  initStackA(char **av, int   i, t_list   *stack);
+void    sort_three(t_list   *stackA, t_list *stackB);
+t_list  *initStackA(char **av, int   i, t_list   *stack);
+void    sa(t_list   *stackA);
 
 #endif
