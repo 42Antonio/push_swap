@@ -1,31 +1,84 @@
 #include    "push_swap.h"
 
-void    sa(t_list   *stackA)
+t_list  *sa(t_list   *stackA)
 {
     int len;
     t_list  *third;
     t_list  *second;
-    t_list  *primero;
 
     len = ft_lstsize(stackA);
     if(len <= 1)
-        return;
+        return NULL;
     else
     {
-        primero = stackA;
-        second = stackA ->next;
-        printf("\nEl segundo es:%s", second->content);
-        printf("\nEl que apunta second es:%s", (second ->next)->content);
-        third = (stackA->next) -> next;
+        second = stackA->next;
+        third = second->next;
         stackA -> next = third;
-        second ->next= primero;
-        printf("\nEl primero es:%s", primero->content);
-        printf("\nEl que apunta primero es:%s", (primero ->next)->content);
-        //second = stackA;
-        printf("\nEl A es:%s", stackA->content);
-        printf("\nEl que apunta A es:%s", (stackA ->next)->content);
-        printf("\nEl segundo es:%s", second->content);
-        printf("\nEl que apunta second es:%s", (second ->next)->content);
+        second ->next= stackA;
     }
     write(1, "sa",2);
+    return(second);
 }
+t_list  *sb(t_list   *stackB)
+{
+    int len;
+    t_list  *third;
+    t_list  *second;
+
+    len = ft_lstsize(stackB);
+    if(len <= 1)
+        return NULL;
+    else
+    {
+        second = stackB->next;
+        third = second->next;
+        stackB -> next = third;
+        second ->next= stackB;
+    }
+    write(1, "sb",2);
+    return(second);
+}
+t_list  *ra(t_list   *stackA)
+{
+    int     len;
+    t_list  *last;
+    t_list  *second;
+
+    len = ft_lstsize(stackA);
+    if(len < 1)
+        return NULL;
+    if (len == 1)
+        return (stackA);
+    else
+    {
+        last = ft_lstlast(stackA);
+        second = stackA->next;
+        last->next= stackA;
+        stackA -> next = NULL;
+    }
+    write(1, "ra",2);
+    return(second);
+}
+
+t_list  *rb(t_list   *stackB)
+{
+    int     len;
+    t_list  *last;
+    t_list  *second;
+
+    len = ft_lstsize(stackB);
+    if(len < 1)
+        return NULL;
+    if (len == 1)
+        return (stackB);
+    else
+    {
+        last = ft_lstlast(stackB);
+        second = stackB->next;
+        last->next= stackB;
+        stackB -> next = NULL;
+    }
+    write(1, "rb",2);
+    return(second);
+}
+

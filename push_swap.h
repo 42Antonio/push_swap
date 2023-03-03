@@ -7,6 +7,9 @@
 
 void    sort_three(t_list   *stackA, t_list *stackB);
 t_list  *initStackA(char **av, int   i, t_list   *stack);
-void    sa(t_list   *stackA);
+t_list  *sa(t_list   *stackA);
+t_list  *ra(t_list   *stackA);
+t_list  *sb(t_list   *stackB);
+t_list  *rb(t_list   *stackB);
 
 #endif
