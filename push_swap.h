@@ -6,7 +6,10 @@
 #   include    <stdio.h>
 
 void    sort_three(t_list   *stackA);
+void    sort_five(t_list   **stacks);
+void    sort(t_list   *stackA);
 t_list  *initStackA(char **av, int   i, t_list   *stack);
+t_list  **initStacks(char  **av, t_list **stacks);
 void    sa(t_list   **stackA, int   flag);
 void    ra(t_list   **stackA, int   flag);
 void    sb(t_list   **stackB, int   flag);

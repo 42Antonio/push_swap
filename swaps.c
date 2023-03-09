@@ -14,14 +14,22 @@ void    sa(t_list  **stackA, int    flag)
     if (len > 1)
     {
         new = *stackA;
-        second = new->next;
+        second = new -> next;
         third = second->next;
         new -> next = third;
         second ->next= new;
         *stackA = second;
     }
     if (flag == 1)
-        write(1, "sa", 2);
+        write(1, "sa\n", 3);
+    
+    // t_list  *prt;
+    // prt = *stackA;
+    // while(prt)
+    // {   
+    //     printf("\n%s", (char *)(prt->content)); 
+    //     prt = prt->next;  
+    // }
 }
 void    sb(t_list   **stackB, int    flag)
 {
@@ -44,7 +52,7 @@ void    sb(t_list   **stackB, int    flag)
         *stackB = second;
     }
     if (flag == 1)
-        write(1, "sb", 2);
+        write(1, "sb\n", 3);
 }
 
 void  ra(t_list   **stackA, int    flag)
@@ -69,7 +77,7 @@ void  ra(t_list   **stackA, int    flag)
         *stackA = second;
     }
     if (flag == 1)
-        write(1, "ra",2);
+        write(1, "ra\n", 3);
 }
 
 void    rb(t_list   **stackB, int    flag)
@@ -94,7 +102,7 @@ void    rb(t_list   **stackB, int    flag)
         *stackB = second;
     }
     if (flag == 1)
-        write(1, "rb",2);
+        write(1, "rb\n",3);
 }
 void    rra(t_list   **stackA, int    flag)
 {
@@ -119,7 +127,7 @@ void    rra(t_list   **stackA, int    flag)
         *stackA = last;
     }
     if (flag == 1)
-        write(1, "rra",2);
+        write(1, "rra\n", 4);
 }
 
 void    rrb(t_list   **stackB, int    flag)
@@ -145,27 +153,73 @@ void    rrb(t_list   **stackB, int    flag)
         *stackB = last;
     }
     if (flag == 1)
-        write(1, "rrb",2);
+        write(1, "rrb\n", 4);
 }
 
 void    ss(t_list   **stackA,t_list   **stackB)
 {
     sa(stackA, 0);
     sb(stackB, 0);
-    write(1, "ss",2);
+    write(1, "ss\n", 3);
 }
 
 void    rr(t_list   **stackA,t_list   **stackB)
 {
     ra(stackA, 0);
     rb(stackB, 0);
-    write(1, "rr",2);
+    write(1, "rr\n", 3);
 }
 
 void    rrr(t_list   **stackA,t_list   **stackB)
 {
     rra(stackA, 0);
     rrb(stackB, 0);
-    write(1, "rrr",2);
+    write(1, "rrr\n", 4);
 }
 
+// void	pa(t_list **stackA, t_list   **stackB, int flag)
+// {
+// 	t_stack	*tmp;
+// 	t_stack	*new;
+//     int lenB;
+//     int lenA;
+
+// 	lenB = ft_lstsize(*stackB);
+//     lenA = ft_lstsize(*stackA);
+//     if (len == 0)
+// 		return ;
+// 	*tmp = *stackB;
+// 	//stacks->size_a++;
+// 	new = ft_lstlast(stackB);
+// 	if (!new)
+// 		exit(1);
+// 	ft_lstadd_front(stackA, new);
+//     while (len > 1)
+//     {
+//         tmp = tmp -> next;
+//     }
+//     tmp -> next  = NULL;
+// 	free(tmp);
+// 	if (flag)
+// 		write(1, "pa\n", 3);
+// }
+
+// void	do_pb(t_stacks *stacks, int flag)
+// {
+// 	t_stack	*tmp;
+// 	t_stack	*new;
+
+// 	if (!stacks->size_a)
+// 		return ;
+// 	tmp = stacks->stack_a;
+// 	stacks->size_b++;
+// 	new = new_list(stacks->stack_a->num, stacks->stack_a->index);
+// 	if (!new)
+// 		exit(1);
+// 	list_add_front(&stacks->stack_b, new);
+// 	stacks->stack_a = stacks->stack_a->next;
+// 	free(tmp);
+// 	stacks->size_a--;
+// 	if (flag)
+// 		write(1, "pb\n", 3);
+// }
