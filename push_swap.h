@@ -19,5 +19,8 @@ void    rra(t_list   **stackB, int   flag);
 void    ss(t_list   **stackA,t_list   **stackB);
 void    rr(t_list   **stackA,t_list   **stackB);
 void    rrr(t_list   **stackA,t_list   **stackB);
+void	pa(t_list **stackA, t_list   **stackB, int flag);
+void    index_to_min(t_list     **list);
+t_list  *giving_index(t_list    *list);
 
 #endif

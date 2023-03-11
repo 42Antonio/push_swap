@@ -2,35 +2,30 @@
 
 void    sort_five(t_list   **stacks)
 {
-    t_list  *prt;
-    // int first =ft_atoi(stackA -> content);
-    // int second = ft_atoi(stackA -> next -> content);
-    // //int third = ft_atoi(stackA -> next -> next -> content);
     
-    // if (second < first && third < first)
-    // {
-    //     if (second > third)
-    //         {
-    //             sa(&stackA, 1);
-    //             rra(&stackA, 1);
-    //         }
-    //     if (second < third)
-    //         ra(&stackA, 1);
-    // }
-    // if (second < first && first < third)
-    //     sa(&stackA, 1);
-    // if (first < second && first < third && second > third)
-    // {
-    //         ra(&stackA,1);
-    //         sa(&stackA, 1);
-    //         rra(&stackA, 1);
-    // }
+    t_list  *tmp;
+    
+    sort_three(stacks[1]);
+    if (stacks[0] -> content > stacks[0] -> next -> content)
+       sb(&stacks[0], 1);
+    //tmp = stacks[1];
+    if(stacks[1] -> content > stacks[0] -> content)
+        pa(&stacks[1], &stacks[0], 1);
+    else
+    {
+        tmp = stacks[1];
+        while(stacks[0] -> content > tmp -> content)
+            tmp = tmp -> next;
+    }
+
+
+     //   while (tmp -> content < )
+    t_list  *prt;  
     prt = stacks[1];
     while(prt)
-    {   
-       printf("\n%s", prt->content); 
-       prt = prt->next;  
+    {
+       printf("\n%i", prt->content);
+       prt = prt->next;
     }
-    //(void)stacks;
     return;
 }

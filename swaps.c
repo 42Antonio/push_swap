@@ -176,44 +176,30 @@ void    rrr(t_list   **stackA,t_list   **stackB)
     rrb(stackB, 0);
     write(1, "rrr\n", 4);
 }
+void	pa(t_list **stackA, t_list   **stackB, int flag)
+{
+	t_list	*new;
+    int lenB;
 
-// void	pa(t_list **stackA, t_list   **stackB, int flag)
+	lenB = ft_lstsize(*stackB);
+    if (lenB == 0)
+		return ;
+	new = *stackB;
+	ft_lstadd_front(stackA, new);
+	if (flag)
+		write(1, "pa\n", 3);
+}
+
+// void	do_pb(t_list **stackA, t_list   **stackB, int flag)
 // {
-// 	t_stack	*tmp;
-// 	t_stack	*new;
-//     int lenB;
-//     int lenA;
-
-// 	lenB = ft_lstsize(*stackB);
-//     lenA = ft_lstsize(*stackA);
-//     if (len == 0)
-// 		return ;
-// 	*tmp = *stackB;
-// 	//stacks->size_a++;
-// 	new = ft_lstlast(stackB);
-// 	if (!new)
-// 		exit(1);
-// 	ft_lstadd_front(stackA, new);
-//     while (len > 1)
-//     {
-//         tmp = tmp -> next;
-//     }
-//     tmp -> next  = NULL;
-// 	free(tmp);
-// 	if (flag)
-// 		write(1, "pa\n", 3);
-// }
-
-// void	do_pb(t_stacks *stacks, int flag)
-// {
-// 	t_stack	*tmp;
-// 	t_stack	*new;
+// 	t_list	*tmp;
+// 	t_list	*new;
 
 // 	if (!stacks->size_a)
 // 		return ;
 // 	tmp = stacks->stack_a;
 // 	stacks->size_b++;
-// 	new = new_list(stacks->stack_a->num, stacks->stack_a->index);
+// 	new = new_list(stacks->stack_a->content, stacks->stack_a->index);
 // 	if (!new)
 // 		exit(1);
 // 	list_add_front(&stacks->stack_b, new);

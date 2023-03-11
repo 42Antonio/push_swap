@@ -1,13 +1,14 @@
 #include    "push_swap.h"
+
 t_list    *initStackA(char **av, int   i, t_list *stack)
 {
     int j = 2;
     t_list  *new;
-    stack = ft_lstnew(av[1]);
+    stack = ft_lstnew(ft_atoi(av[1]));
     
     while(j <= i)
     {
-        new = ft_lstnew(av[j]);
+        new = ft_lstnew(ft_atoi(av[j]));
         ft_lstadd_back(&stack, new);
         j++;
     }
@@ -20,17 +21,16 @@ t_list    **initStacks(char  **av, t_list **stacks)
     t_list  *new;
     int j;
 
-    stackB =(t_list  *)malloc(2 * sizeof(t_list));
-    stackA =(t_list  *)malloc(3 * sizeof(t_list));
-    j = 3;
-    stackB = ft_lstnew(av[1]);
-    new = ft_lstnew(av[2]);
+    // stackB =(t_list  *)malloc(2 * sizeof(t_list));
+    // stackA =(t_list  *)malloc(3 * sizeof(t_list));
+    j = 4;
+    stackB = ft_lstnew(ft_atoi(av[1]));
+    new = ft_lstnew(ft_atoi(av[2]));
     ft_lstadd_back(&stackB, new);
-
-    stackA = ft_lstnew(av[3]);
+    stackA = ft_lstnew(ft_atoi(av[3]));
     while (j <= 5)
     {
-        new = ft_lstnew(av[j]);
+        new = ft_lstnew(ft_atoi(av[j]));
         ft_lstadd_back(&stackA, new);
         j++;
     }

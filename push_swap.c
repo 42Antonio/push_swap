@@ -1,9 +1,10 @@
 #include    "push_swap.h"
+
 int main(int ac, char   **av)
 {
     t_list *stackA = NULL;
     //t_list *stackB = NULL;
-    t_list **stacks = NULL;
+    t_list *stacks[2];
 
     if (ac == 4)
     {
@@ -18,4 +19,3 @@ int main(int ac, char   **av)
     else
         printf("\nTODAVIA NO");
 }
-

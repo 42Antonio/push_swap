@@ -2,10 +2,10 @@
 
 void    sort_three(t_list   *stackA)
 {
-    //t_list  *prt;
-    int first =ft_atoi(stackA -> content);
-    int second = ft_atoi(stackA -> next -> content);
-    int third = ft_atoi(stackA -> next -> next -> content);
+   
+    int first =stackA -> content;
+    int second = stackA -> next -> content;
+    int third = stackA -> next -> next -> content;
     if (second < first && third < first)
     {
         if (second > third)
@@ -23,11 +23,11 @@ void    sort_three(t_list   *stackA)
             rra(&stackA, 1);
             sa(&stackA, 1);        
     }
+    // t_list  *prt;
     // prt = stackA;
     // while(prt)
     // {   
-    //    printf("\n%s", (char *)(prt->content)); 
+    //    printf("%i\n", prt->content); 
     //    prt = prt->next;  
     // }
-
 }
