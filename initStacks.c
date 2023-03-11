@@ -21,6 +21,7 @@ t_list    **initStacks(char  **av, t_list **stacks)
     t_list  *new;
     int j;
 
+    
     // stackB =(t_list  *)malloc(2 * sizeof(t_list));
     // stackA =(t_list  *)malloc(3 * sizeof(t_list));
     j = 4;
