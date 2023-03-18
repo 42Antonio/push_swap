@@ -1,33 +1,31 @@
 #include    "push_swap.h"
 
-void    sort_three(t_list   *stackA)
+void    sort_three(t_list   **stack)
 {
-   
-    int first =stackA -> content;
-    int second = stackA -> next -> content;
-    int third = stackA -> next -> next -> content;
-    if (second < first && third < first)
+    if (((*stack) -> next -> content < (*stack) -> content)
+        && ((*stack) -> next -> next -> content < (*stack) -> content))
     {
-        if (second > third)
+        if ((*stack) -> next -> content > (*stack) -> next -> next -> content)
+                sa(stack, 1);
+        else if((*stack)-> next -> content < (*stack) -> next -> next -> content)
+            ra(stack, 1);
+    }
+    if (((*stack) -> content < (*stack)-> next -> content)
+        && ((*stack) -> next -> content > (*stack) -> next -> next -> content))
+    {
+            if ((*stack) -> content < (*stack) -> next -> next -> content)
             {
-                sa(&stackA, 1);
-                rra(&stackA, 1);
+                rra(stack, 1);
+                sa(stack, 1);
             }
-        if (second < third)
-            ra(&stackA, 1);
+            else
+                rra(stack, 1);       
     }
-    if (second < first && first < third)
-        sa(&stackA, 1);
-    if (first < second && first < third && second > third)
-    {
-            rra(&stackA, 1);
-            sa(&stackA, 1);        
-    }
-    // t_list  *prt;
-    // prt = stackA;
-    // while(prt)
-    // {   
-    //    printf("%i\n", prt->content); 
-    //    prt = prt->next;  
-    // }
+    else if (((*stack) -> next -> content < (*stack) -> content)
+        && ((*stack) -> content < (*stack)-> next -> next -> content))
+        sa(stack, 1);
 }
+/*
+Casos: 
+    135l   153l   315l    -351-    513l      531l
+*/

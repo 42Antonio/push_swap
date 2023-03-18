@@ -19,3 +19,31 @@ void    sort(t_list   *stackA)
     //printf("\nEl avlor de i es:%i", i);
 
 }
+
+// void    sort_three(t_list   **stack)
+// {
+//     t_list  *tmp;
+
+//     tmp = *stack;
+//     if ((tmp -> next -> content < tmp -> content)
+//         && (tmp -> next -> next -> content < tmp -> content))
+//     {
+//         if (tmp -> next -> content > tmp -> next -> next -> content)
+//             {
+//                 sa(stack, 1);
+//                 rra(stack, 1);
+//             }
+//         if (tmp -> next -> content < tmp -> next -> next -> content)
+//             ra(stack, 1);
+//     }
+//     if ((tmp -> next -> content < tmp -> content)
+//         && (tmp -> content < tmp -> next -> next -> content))
+//         sa(stack, 1);
+//     if ((tmp -> content < tmp -> next -> content)
+//         && (tmp -> content < tmp -> next -> next -> content)
+//         && (tmp -> next -> content > tmp -> next -> next -> content))
+//     {
+//             rra(stack, 1);
+//             sa(stack, 1);        
+//     }
+// }

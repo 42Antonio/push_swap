@@ -27,7 +27,7 @@ void    sa(t_list  **stackA, int    flag)
     // prt = *stackA;
     // while(prt)
     // {   
-    //     printf("\n%s", (char *)(prt->content)); 
+    //     printf("\n%i", prt->content); 
     //     prt = prt->next;  
     // }
 }
@@ -107,11 +107,13 @@ void    rb(t_list   **stackB, int    flag)
 void    rra(t_list   **stackA, int    flag)
 {
     int     len;
+    int     i;
     t_list  *last;
-    t_list  *b_last;
-    t_list  *new = NULL;
 
+    t_list  *new = NULL;
+    i = 1;
     len = ft_lstsize(*stackA);
+    //printf("\n El tamaño es de %i", len);
     // if(len < 1)
     //     return NULL;
     // if (len == 1)
@@ -120,9 +122,12 @@ void    rra(t_list   **stackA, int    flag)
     {
         new = *stackA;
         last = ft_lstlast(new);
-        while (len--)
-            b_last = new -> next;
-        b_last -> next = NULL;
+        while (i < len - 1)
+        {
+            new = new -> next;
+            i++;        
+        }
+        new -> next = NULL;
         last->next= *stackA;
         *stackA = last;
     }
@@ -179,33 +184,36 @@ void    rrr(t_list   **stackA,t_list   **stackB)
 void	pa(t_list **stackA, t_list   **stackB, int flag)
 {
 	t_list	*new;
+    t_list  *firstB;
     int lenB;
 
 	lenB = ft_lstsize(*stackB);
     if (lenB == 0)
 		return ;
 	new = *stackB;
+    firstB = new -> next;
 	ft_lstadd_front(stackA, new);
 	if (flag)
 		write(1, "pa\n", 3);
+    *stackB = firstB;
+    
 }
 
-// void	do_pb(t_list **stackA, t_list   **stackB, int flag)
-// {
-// 	t_list	*tmp;
-// 	t_list	*new;
+void	pb(t_list **stackB, t_list   **stackA, int flag)
+{
+	t_list	*new;
+    t_list  *firstA;
+    int lenA;
 
-// 	if (!stacks->size_a)
-// 		return ;
-// 	tmp = stacks->stack_a;
-// 	stacks->size_b++;
-// 	new = new_list(stacks->stack_a->content, stacks->stack_a->index);
-// 	if (!new)
-// 		exit(1);
-// 	list_add_front(&stacks->stack_b, new);
-// 	stacks->stack_a = stacks->stack_a->next;
-// 	free(tmp);
-// 	stacks->size_a--;
-// 	if (flag)
-// 		write(1, "pb\n", 3);
-// }
+	lenA = ft_lstsize(*stackA);
+    if (lenA == 0)
+		return ;
+	new = *stackA;
+    firstA = new -> next;
+	ft_lstadd_front(stackB, new);
+	if (flag)
+		write(1, "pb\n", 3);
+    *stackA = firstA;
+    //printf("\nHola");
+    //printlist(*stackB);
+}

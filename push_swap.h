@@ -2,14 +2,17 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include <limits.h>
 //ELIMINAR LA lIBREIRA STDIO
 #   include    <stdio.h>
 
-void    sort_three(t_list   *stackA);
-void    sort_five(t_list   **stacks);
+void    sort_three(t_list   **stackA);
+void    sort_small(t_list   **stackA, t_list **stackB, int ac);
+void    radix_sort(t_list   **stackA, t_list    **stackB);
 void    sort(t_list   *stackA);
-t_list  *initStackA(char **av, int   i, t_list   *stack);
-t_list  **initStacks(char  **av, t_list **stacks);
+//t_list  *initStackA(char  **av, int   ac, t_list *stackA);
+t_list  *initStackB(int ac, t_list **stackA, t_list   *stackB);
+int     init(int    ac, char    **av, t_list    **stackA);
 void    sa(t_list   **stackA, int   flag);
 void    ra(t_list   **stackA, int   flag);
 void    sb(t_list   **stackB, int   flag);
@@ -20,7 +23,10 @@ void    ss(t_list   **stackA,t_list   **stackB);
 void    rr(t_list   **stackA,t_list   **stackB);
 void    rrr(t_list   **stackA,t_list   **stackB);
 void	pa(t_list **stackA, t_list   **stackB, int flag);
-void    index_to_min(t_list     **list);
-t_list  *giving_index(t_list    *list);
-
+void	pb(t_list **stackA, t_list   **stackB, int flag);
+int     min_value(t_list     **list);
+void    giving_index(t_list    **list);
+void    put_node_ahead(t_list    **stackA, int  number);
+void    printlist(t_list   *stack);
+void    printindex(t_list   *stack);
 #endif
