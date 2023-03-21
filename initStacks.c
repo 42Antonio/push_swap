@@ -1,20 +1,6 @@
 #include    "push_swap.h"
 
-t_list    *initStackA(char  **av, int ac, t_list *stackA)
-{
-    t_list  *new;
-    int j;
-
-    j = 2;
-    stackA = ft_lstnew(ft_atoi(av[1]));
-    while (j < ac)
-    {
-        new = ft_lstnew(ft_atoi(av[j]));
-        ft_lstadd_back(&stackA, new);
-        j++;
-    }
-    return (stackA);
-}
+//Use only for sort four or five
 
 t_list    *initStackB(int ac, t_list **stackA, t_list   *stackB)
 {
@@ -31,6 +17,7 @@ t_list    *initStackB(int ac, t_list **stackA, t_list   *stackB)
     }
     return (stackB);
 }
+// COMPROBAR para valores mas pequeños que int o mayores
 
 int     init(int    ac, char    **av, t_list    **stackA)
 {
@@ -38,29 +25,33 @@ int     init(int    ac, char    **av, t_list    **stackA)
     int     j;
     char    **numbers;
     
-    i = 0;
-    j = 0;
+    i = 1;
     while (i < ac)
-    {
+    { 
+        j = 0;
         numbers = ft_split(av[i], ' ');
         if(!numbers[j])
             return (1);
         while (numbers[j])
         {
-            if (ft_atoi(numbers[j]) < INT_MIN || ft_atoi(numbers[j]) < INT_MAX)
+            if (!ft_isdigit(*numbers[j]))
                 return (1);
-            ft_lstadd_back(stackA, ft_atoi(numbers[j]));
+            if (ft_atoi(numbers[j]) < INT_MIN || ft_atoi(numbers[j]) > INT_MAX)
+                return (1);
+            ft_lstadd_back(stackA, ft_lstnew(ft_atoi(numbers[j])));
             j++;
         }
         free_numbers(numbers);
         i++;
     }
-    if (check_duplicate(&stackA))
+    if (ft_lstsize(*stackA) == 1)
+        return (1);
+    if (check_duplicate(*stackA))
         return (1);
     return (0);
 }
 
-static  int     check_duplicate(t_list  *stackA)
+int     check_duplicate(t_list  *stackA)
 {
     int     value;
     t_list  *tmp;
@@ -74,14 +65,14 @@ static  int     check_duplicate(t_list  *stackA)
             if (tmp -> content == value)
                 return (1);
             tmp = tmp -> next;
-
         }
         stackA = stackA -> next;
     }
+    
     return (0);
 }
 
-static  void    free_numbers(char    **numbers)
+void    free_numbers(char    **numbers)
 {
     int i;
 
@@ -89,7 +80,7 @@ static  void    free_numbers(char    **numbers)
     while (numbers[i])
     {
         free(numbers[i]);
-        numbers[i] == NULL;
+        numbers[i] = NULL;
         i++;
     }
     free(numbers);

@@ -1,49 +1,51 @@
 #include    "push_swap.h"
 
-void    sort(t_list   *stackA)
+void    sort_two(t_list **stackA)
 {
-    //int i=0;
-    t_list  *prt;
-    // int first =ft_atoi(stackA -> contentç);
-    // int second = ft_atoi(stackA -> next -> contentç);
-    // int third = ft_atoi(stackA -> next -> next -> contentç);
-    //stackB = ft_listnew("8");
-    sa(&stackA, 1);
-    prt = stackA;
-    while(prt)
-    {   
-        printf("\n%i", prt->content); 
-        prt = prt->next;  
-    //i++;
-    }
-    //printf("\nEl avlor de i es:%i", i);
-
+    if ((*stackA) -> content >  (*stackA) -> next -> content)
+        sa(stackA, 1);
 }
 
-// void    sort_three(t_list   **stack)
-// {
-//     t_list  *tmp;
+void    sort_three(t_list   **stack)
+{
+    if (((*stack) -> next -> content < (*stack) -> content)
+        && ((*stack) -> next -> next -> content < (*stack) -> content))
+    {
+        if ((*stack) -> next -> content > (*stack) -> next -> next -> content)
+                sa(stack, 1);
+        else if((*stack)-> next -> content < (*stack) -> next -> next -> content)
+            ra(stack, 1);
+    }
+    if (((*stack) -> content < (*stack)-> next -> content)
+        && ((*stack) -> next -> content > (*stack) -> next -> next -> content))
+    {
+            if ((*stack) -> content < (*stack) -> next -> next -> content)
+            {
+                rra(stack, 1);
+                sa(stack, 1);
+            }
+            else
+                rra(stack, 1);       
+    }
+    else if (((*stack) -> next -> content < (*stack) -> content)
+        && ((*stack) -> content < (*stack)-> next -> next -> content))
+        sa(stack, 1);
+}
 
-//     tmp = *stack;
-//     if ((tmp -> next -> content < tmp -> content)
-//         && (tmp -> next -> next -> content < tmp -> content))
-//     {
-//         if (tmp -> next -> content > tmp -> next -> next -> content)
-//             {
-//                 sa(stack, 1);
-//                 rra(stack, 1);
-//             }
-//         if (tmp -> next -> content < tmp -> next -> next -> content)
-//             ra(stack, 1);
-//     }
-//     if ((tmp -> next -> content < tmp -> content)
-//         && (tmp -> content < tmp -> next -> next -> content))
-//         sa(stack, 1);
-//     if ((tmp -> content < tmp -> next -> content)
-//         && (tmp -> content < tmp -> next -> next -> content)
-//         && (tmp -> next -> content > tmp -> next -> next -> content))
-//     {
-//             rra(stack, 1);
-//             sa(stack, 1);        
-//     }
-// }
+/*
+Cases: 
+    135l   153l   315l    -351-    513l      531l
+*/
+
+void    sort_four_five(t_list   **stackA, t_list **stackB, int ac)
+{    
+    int j;
+
+    j = 4;
+    sort_three(stackA);
+    while (j < ac)
+    {
+        pa(stackA, stackB, 1);
+        j++;
+    }
+}
