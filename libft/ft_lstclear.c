@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aclaros- <aclaros-@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: antonio <antonio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 11:59:32 by aclaros-          #+#    #+#             */
-/*   Updated: 2022/10/21 12:01:17 by aclaros-         ###   ########.fr       */
+/*   Updated: 2023/03/21 19:34:31 by antonio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(int))
 {
 	t_list	*onelst;
 
