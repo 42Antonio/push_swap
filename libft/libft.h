@@ -6,7 +6,7 @@
 /*   By: antonio <antonio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 17:07:31 by aclaros-          #+#    #+#             */
-/*   Updated: 2023/03/21 19:36:20 by antonio          ###   ########.fr       */
+/*   Updated: 2023/03/24 18:09:29 by antonio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_list
 }					t_list;
 
 int		ft_atoi(const char *str);
+long	atoli(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *b, size_t n);
 void	*ft_memchr(const void *str, int c, size_t n);
@@ -43,8 +44,8 @@ void	ft_lstclear(t_list **lst, void (*del)(int));
 void	ft_lstdelone(t_list *lst, void (*del)(int));
 void	ft_lstiter(t_list *lst, void (*f)(int));
 t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstmap(t_list *lst, int(*f)(int), void (*del)(int));
-t_list	*ft_lstnew(int	content);
+t_list	*ft_lstmap(t_list *lst, int (*f)(int), void (*del)(int));
+t_list	*ft_lstnew(int content);
 int		ft_lstsize(t_list *lst);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);

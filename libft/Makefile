@@ -7,6 +7,7 @@ CFLAGS	=	 -Werror -Wall -Wextra
 AR	=	 ar -rcs
 
 SRC = ft_atoi.c \
+		  atoli.c \
 		  ft_bzero.c \
 	      ft_calloc.c \
 		  ft_isalnum.c \

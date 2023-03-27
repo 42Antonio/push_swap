@@ -1,81 +1,71 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: antonio <antonio@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/23 12:08:57 by aclaros-          #+#    #+#             */
+/*   Updated: 2023/03/27 14:49:45 by antonio          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include    "push_swap.h"
 
-void    clear(t_list    **stack)
+void	clear(t_list	**stack)
 {
-    if (!stack || !(*stack))
-        return ;
-    clear(&(*stack)-> next);
-    free(*stack);
-    *stack = NULL;
+	if (!stack || !(*stack))
+		return ;
+	clear(&(*stack)-> next);
+	free(*stack);
+	*stack = NULL;
 }
 
-int main(int ac, char   **av)
+// This function was placed into the initStacks.c file but to obey 42 rules was moved here. 
+
+int	check_duplicate(t_list	*stackA)
 {
-    t_list *stackA;
-    t_list *stackB;
-    
-    if (ac == 1)
-    {
-        ft_putstr_fd("Error\n", 2);
-        return (1);
-    }
-    stackA = NULL;
-    stackB = NULL;
-    // int i = 3;
-    // while(i--)
-    // {
-    //     printf("\nEl valor de av[i] es: %s",av[i]);
-    // }
-    //stackA = initStackA(av, ac, stackA);
-    if (init(ac, av, &stackA) == 1)
-    {
-        ft_putstr_fd("Error\n", 2);
-        return (1);
-    }
-    else
-    {
-        if (ft_lstsize(stackA) == 2)
-            sort_two(&stackA);
-        else if (ft_lstsize(stackA) == 3)
-            sort_three(&stackA);
-        else if (ft_lstsize(stackA) == 4 || ft_lstsize(stackA) == 5)
-        {
-            stackB = initStackB(ac, &stackA, stackB);
-            sort_four_five(&stackA, &stackB, ac);
-        }
-        else
-        {
-            giving_index(&stackA);
-            radix_sort(&stackA, &stackB);
-        }
-    }
-    // char s = 'd';
-    // printf("\n es numero: %i", ft_isalpha(s));
-    // printf("\n La lista A:");
-    // printlist(stackA);
-    // printf("\n Y la lista B:");
-    // printlist(stackB);
-    // clear(&stackA);
-    // clear(&stackB);
-    // system("leaks push_swap");
-   
-    return (0);
-    // if (ac == 4)
-    // {
-    //     //stackA = initStackA(av, ac, stackA);
-    //     sort_three(&stackA);
-    // }
-    // else if (ac == 5 || ac == 6)
-    // {
-    //     //stackA = initStackA(av, ac, stackA);
-    //     stackB = initStackB(ac, &stackA, stackB);
-    //     sort_small(&stackA, &stackB, ac);
-    // }
-    // else
-    // {
-    //     //stackA = initStackA(av, ac, stackA);
-    //     giving_index(&stackA);
-    //     radix_sort(&stackA, &stackB);
-    // }
-    
+	int		value;
+	t_list	*tmp;
+
+	while (stackA)
+	{
+		value = stackA -> content;
+		tmp = stackA -> next;
+		while (tmp)
+		{
+			if (tmp -> content == value)
+				return (1);
+			tmp = tmp -> next;
+		}
+		stackA = stackA -> next;
+	}
+	return (0);
+}
+
+int	main(int ac, char **av)
+{
+	t_list	*stacka;
+	t_list	*stackb;
+
+	if (ac == 1)
+		return (0);
+	stacka = NULL;
+	stackb = NULL;
+	if (init(ac, av, &stacka) == 1)
+	{
+		clear(&stacka);
+		ft_putstr_fd("Error\n", 2);
+		return (1);
+	}
+	else if (ft_lstsize(stacka) == 1)
+	{
+		clear(&stacka);
+		return (0);
+	}
+	if (!is_sorted(&stacka))
+		sort(&stacka, &stackb, ac);
+	clear(&stacka);
+	clear(&stackb);
+	return (0);
 }
