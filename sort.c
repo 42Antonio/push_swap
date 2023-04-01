@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonio <antonio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aclaros- <aclaros-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 12:09:25 by aclaros-          #+#    #+#             */
-/*   Updated: 2023/03/24 18:26:24 by antonio          ###   ########.fr       */
+/*   Updated: 2023/04/01 11:22:30 by aclaros-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include    "push_swap.h"
 
-void	sort(t_list **stacka, t_list **stackb, int ac)
+void	sort(t_list **stacka, t_list **stackb)
 {
 	if (ft_lstsize(*stacka) == 2 || ft_lstsize(*stacka) == 3)
 		sort_two_three(stacka, ft_lstsize(*stacka));
 	else if (ft_lstsize(*stacka) == 4 || ft_lstsize(*stacka) == 5)
-		sort_four_five(stacka, stackb, ac);
+		sort_four_five(stacka, stackb);
 	else
 	{
 		giving_index(stacka);
@@ -63,14 +63,14 @@ void	sort_three(t_list **stack)
 		sa(stack, 1);
 }
 
-void	sort_four_five(t_list **stacka, t_list **stackb, int ac)
+void	sort_four_five(t_list **stacka, t_list **stackb)
 {
 	int	j;
 
-	j = 4;
-	stackb = init_stackb(ac, stacka, stackb);
+	j = 0;
+	stackb = init_stackb(stacka, stackb);
 	sort_three(stacka);
-	while (j < ac)
+	while (j < ft_lstsize(*stackb) + 1)
 	{
 		pa(stacka, stackb, 1);
 		j++;

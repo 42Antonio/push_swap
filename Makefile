@@ -1,15 +1,7 @@
 FLAGS=-Werror -Wextra -Wall
 NAME=push_swap
 INCLUDES=libft/libft.a
-SRC= auxiliar_swap.c \
-		index_fun.c \
-		initStacks.c \
-		push_swap.c \
-		radix_sort.c \
-		sort.c \
-		swaps_a.c \
-		swaps_b.c \
-		swaps.c \
+SRC=*.c
 		
 all:
 	@make -C libft/ all

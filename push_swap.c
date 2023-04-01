@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonio <antonio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aclaros- <aclaros-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 12:08:57 by aclaros-          #+#    #+#             */
-/*   Updated: 2023/03/27 14:49:45 by antonio          ###   ########.fr       */
+/*   Updated: 2023/04/01 11:20:19 by aclaros-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	if (!is_sorted(&stacka))
-		sort(&stacka, &stackb, ac);
+		sort(&stacka, &stackb);
 	clear(&stacka);
 	clear(&stackb);
 	return (0);

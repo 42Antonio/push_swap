@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initStacks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: antonio <antonio@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aclaros- <aclaros-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 12:23:22 by aclaros-          #+#    #+#             */
-/*   Updated: 2023/03/27 14:49:46 by antonio          ###   ########.fr       */
+/*   Updated: 2023/04/01 11:19:14 by aclaros-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 // This function is only used to sort 4 or 5 nunmbers
 
-t_list	**init_stackb(int ac, t_list **stacka, t_list **stackb)
+t_list	**init_stackb(t_list **stacka, t_list **stackb)
 {
 	int	min;
-
-	min = min_value(stacka);
-	put_node_ahead(stacka, min);
-	pb(stackb, stacka, 1);
-	if (ac == 6)
+	if (ft_lstsize(*stacka) > 3)
+	{
+		min = min_value(stacka);
+		put_node_ahead(stacka, min);
+		pb(stackb, stacka, 1);
+	}
+	if (ft_lstsize(*stacka) > 3)
 	{
 		min = min_value(stacka);
 		put_node_ahead(stacka, min);

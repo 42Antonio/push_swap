@@ -6,7 +6,7 @@
 /*   By: aclaros- <aclaros-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 12:12:59 by aclaros-          #+#    #+#             */
-/*   Updated: 2023/03/25 11:50:40 by aclaros-         ###   ########.fr       */
+/*   Updated: 2023/04/01 11:20:34 by aclaros-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 
 void	sort_two_three(t_list **stacka, int i);
 void	sort_three(t_list **stackA);
-void	sort_four_five(t_list **stackA, t_list **stackB, int ac);
-void	sort(t_list **stacka, t_list **stackb, int ac);
+void	sort_four_five(t_list **stackA, t_list **stackB);
+void	sort(t_list **stacka, t_list **stackb);
 void	radix_sort(t_list **stackA, t_list **stackB);
 int		is_sorted(t_list **stacka);
-t_list	**init_stackb(int ac, t_list **stacka, t_list **stackb);
+t_list	**init_stackb(t_list **stacka, t_list **stackb);
 int		init(int ac, char **av, t_list **stackA);
 void	sa(t_list **stackA, int flag);
 void	ra(t_list **stackA, int flag);
