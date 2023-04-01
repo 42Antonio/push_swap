@@ -6,11 +6,17 @@
 /*   By: aclaros- <aclaros-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 12:08:57 by aclaros-          #+#    #+#             */
-/*   Updated: 2023/04/01 11:20:19 by aclaros-         ###   ########.fr       */
+/*   Updated: 2023/04/01 12:32:23 by aclaros-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include    "push_swap.h"
+
+// void	check_memory_leaks()
+// {
+// 	system("leaks push_swap");
+// 	exit(0);
+// }
 
 void	clear(t_list	**stack)
 {
@@ -48,6 +54,7 @@ int	main(int ac, char **av)
 	t_list	*stacka;
 	t_list	*stackb;
 
+	//atexit(check_memory_leaks);
 	if (ac == 1)
 		return (0);
 	stacka = NULL;
